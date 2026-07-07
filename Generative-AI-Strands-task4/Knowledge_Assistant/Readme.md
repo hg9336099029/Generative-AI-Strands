@@ -167,7 +167,7 @@ with a message telling you to build the index first.
 > documents. *(demonstrates the "not found" behavior — this question is
 > outside the ingested document set on purpose)*
 
-## Stretch goals (not yet implemented)
+## Stretch goals 
 
 - Re-ranking step after retrieval (e.g. cross-encoder) to improve ordering.
 - Conversation memory for follow-up questions.
