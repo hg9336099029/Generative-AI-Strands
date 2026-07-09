@@ -1,3 +1,194 @@
+# =============================================================================
+# KNOWLEDGE ASSISTANT - COMPLETE FLOW
+# =============================================================================
+#
+# 1. User sends a request:
+#
+#       POST /ask
+#       {
+#           "question": "What is RAG?"
+#       }
+#
+# -----------------------------------------------------------------------------
+#
+# 2. FastAPI receives the request.
+#
+#       agent = get_agent()
+#
+#    • get_agent() ONLY creates (or reuses) the Agent.
+#    • It does NOT receive or process the user's question.
+#    • The Agent is cached so it is not rebuilt for every request.
+#
+# -----------------------------------------------------------------------------
+#
+# 3. If the Agent does not exist:
+#
+#       build_agent()
+#
+#    build_agent() configures the Agent by attaching:
+#
+#       ✓ Bedrock Claude Model
+#       ✓ retrieve_knowledge Tool
+#       ✓ System Prompt
+#
+#    No user question is passed here because the Agent is only being created.
+#
+# -----------------------------------------------------------------------------
+#
+# 4. Ask the Agent:
+#
+#       result = agent(request.question)
+#
+#    This is where the user's question is finally passed to the Agent.
+#
+#    Example:
+#
+#       agent("Explain Retrieval-Augmented Generation")
+#
+# -----------------------------------------------------------------------------
+#
+# 5. Agent starts reasoning.
+#
+#    Based on the System Prompt, the LLM decides:
+#
+#       • Can I answer directly?
+#       • Do I need to search the knowledge base?
+#
+# -----------------------------------------------------------------------------
+#
+# 6. If retrieval is needed, the Agent automatically calls:
+#
+#       retrieve_knowledge(query)
+#
+#    IMPORTANT:
+#
+#       The Agent itself supplies 'query'.
+#
+#    The query may be:
+#
+#       • Original user question
+#
+#           "What is RAG?"
+#
+#       • Rewritten query
+#
+#           "Retrieval Augmented Generation"
+#
+#       • More specific query
+#
+#           "RAG architecture and workflow"
+#
+#    FastAPI never calls retrieve_knowledge().
+#
+# -----------------------------------------------------------------------------
+#
+# 7. retrieve_knowledge()
+#
+#       retrieve_knowledge(query)
+#              │
+#              ▼
+#       retrieve_and_format(query)
+#              │
+#              ▼
+#       Vector Database
+#              │
+#              ▼
+#       Top-K Similar Chunks
+#
+# -----------------------------------------------------------------------------
+#
+# 8. Retrieved chunks are returned to the Agent.
+#
+#    The LLM reads those chunks, reasons over them,
+#    cites sources if instructed, and generates the final answer.
+#
+# -----------------------------------------------------------------------------
+#
+# 9. FastAPI returns the response.
+#
+#       {
+#           "question": "...",
+#           "answer": "..."
+#       }
+#
+# =============================================================================
+# RESPONSIBILITY OF EACH FUNCTION
+# =============================================================================
+#
+# build_agent()
+# ----------------
+# • Create and configure the Agent.
+# • Attach Model + Tools + System Prompt.
+# • Does NOT receive the user's question.
+#
+#
+# get_agent()
+# ----------------
+# • Return the existing Agent if already created.
+# • Otherwise build it once.
+# • Does NOT execute the Agent.
+#
+#
+# agent(question)
+# ----------------
+# • Execute the Agent.
+# • User's question is passed here.
+# • Starts reasoning and tool calling.
+#
+#
+# retrieve_knowledge(query)
+# -------------------------
+# • Tool exposed to the Agent.
+# • Called automatically by the Agent (not by FastAPI).
+# • Searches the vector database.
+# • Returns relevant document chunks.
+#
+#
+# retrieve_and_format()
+# ---------------------
+# • Performs similarity search.
+# • Formats retrieved chunks.
+# • Returns them to the Agent.
+#
+# =============================================================================
+# COMPLETE FLOW
+# =============================================================================
+#
+# User
+#   │
+#   ▼
+# POST /ask
+#   │
+#   ▼
+# get_agent()
+#   │
+#   ▼
+# build_agent()      (Only once)
+#   │
+#   ▼
+# Agent
+#   │
+#   ▼
+# agent(question)
+#   │
+#   ▼
+# LLM Reasoning
+#   │
+#   ├──────────────► retrieve_knowledge(query)
+#   │                     │
+#   │                     ▼
+#   │              Vector Database
+#   │                     │
+#   │                     ▼
+#   │              Retrieved Chunks
+#   │
+#   ▼
+# Final Answer
+#   │
+#   ▼
+# FastAPI Response
+#
+# =============================================================================
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
@@ -41,6 +232,7 @@ def ask(request: AskRequest) -> AskResponse:
     grounded, cited answer, or say it couldn't find one."""
 
     try:
+
         agent = get_agent()
         result = agent(request.question)
     except FileNotFoundError as e:
