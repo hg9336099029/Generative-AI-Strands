@@ -39,6 +39,7 @@ def retrieve(query: str, top_k: int = 4) -> list:
     return _store.search(query_vector, top_k=top_k)
 
 
+
 @tool(name="retrieve", description="Search the vector database for relevant document chunks and return them as formatted evidence.")
 def retrieve_and_format(query: str, top_k: int = 4) -> str:
     """Embed `query` and return the top_k most similar chunks as formatted text."""

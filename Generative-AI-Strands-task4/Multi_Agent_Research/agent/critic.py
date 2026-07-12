@@ -16,4 +16,3 @@ critic_agent = Agent(
     model=model,
     system_prompt=critic_prompt 
 )
-
