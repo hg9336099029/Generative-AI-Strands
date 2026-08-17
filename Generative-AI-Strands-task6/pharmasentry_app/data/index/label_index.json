@@ -1,0 +1,61 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "lisinopril-0000",
+      "product": "lisinopril",
+      "section": "indications_and_usage",
+      "text": "# SYNTHETIC DEMO CONTENT -- NOT the verbatim FDA label.\n# Written for PharmaSentry's capstone demo corpus. Before any real use,\n# replace with the actual current label text pulled live via\n# agent/tools/openfda_tool.py::openfda_label_search or the openFDA\n# drug/label bulk download, and re-run scripts/build_label_index.py.\n\nPRODUCT: Lisinopril (ACE inhibitor)\n\nSECTION: indications_and_usage\nLisino",
+      "source_file": "Lisinopril.txt"
+    },
+    {
+      "chunk_id": "lisinopril-0001",
+      "product": "lisinopril",
+      "section": "warnings",
+      "text": ".py.\n\nPRODUCT: Lisinopril (ACE inhibitor)\n\nSECTION: indications_and_usage\nLisinopril is indicated for the treatment of hypertension, to lower blood\npressure. It is also indicated for the treatment of heart failure, as an\nadjunct therapy, and for use in stable patients within 24 hours of acute\nmyocardial infarction.\n\nSECTION: boxed_warning\nWhen pregnancy is detected, discontinue lisinopril as soon",
+      "source_file": "Lisinopril.txt"
+    },
+    {
+      "chunk_id": "lisinopril-0002",
+      "product": "lisinopril",
+      "section": "warnings",
+      "text": "CTION: boxed_warning\nWhen pregnancy is detected, discontinue lisinopril as soon as possible.\nDrugs that act on the renin-angiotensin system can cause injury and death\nto the developing fetus.\n\nSECTION: warnings\nAngioedema of the face, extremities, lips, tongue, glottis, and/or larynx\nhas been reported in patients treated with ACE inhibitors, including\nlisinopril, at any point during treatment. Lis",
+      "source_file": "Lisinopril.txt"
+    },
+    {
+      "chunk_id": "lisinopril-0003",
+      "product": "lisinopril",
+      "section": "contraindications",
+      "text": "ed with ACE inhibitors, including\nlisinopril, at any point during treatment. Lisinopril should be discontinued\nimmediately and the patient monitored if angioedema occurs. Head and neck\nangioedema may cause airway obstruction.\nExcessive hypotension has been reported, particularly after the first dose,\nin volume- or salt-depleted patients.\n\nSECTION: contraindications\nLisinopril is contraindicated in",
+      "source_file": "Lisinopril.txt"
+    },
+    {
+      "chunk_id": "lisinopril-0004",
+      "product": "lisinopril",
+      "section": "contraindications",
+      "text": "-depleted patients.\n\nSECTION: contraindications\nLisinopril is contraindicated in patients with a history of angioedema\nrelated to previous ACE inhibitor treatment, and in patients with hereditary\nor idiopathic angioedema. Do not co-administer with aliskiren in patients\nwith diabetes.\n\nSECTION: adverse_reactions\nThe most commonly reported adverse reactions in clinical trials were\ndizziness, headach",
+      "source_file": "Lisinopril.txt"
+    },
+    {
+      "chunk_id": "lisinopril-0005",
+      "product": "lisinopril",
+      "section": "adverse_reactions",
+      "text": "t commonly reported adverse reactions in clinical trials were\ndizziness, headache, cough, and hypotension. Cough was more common than\nwith comparator drugs and is a class effect of ACE inhibitors.\n\nSECTION: drug_interactions\nConcomitant use with potassium-sparing diuretics, potassium supplements, or\nsalt substitutes containing potassium may lead to increases in serum\npotassium. Dual blockade of th",
+      "source_file": "Lisinopril.txt"
+    },
+    {
+      "chunk_id": "lisinopril-0006",
+      "product": "lisinopril",
+      "section": "dosage_and_administration",
+      "text": "ntaining potassium may lead to increases in serum\npotassium. Dual blockade of the renin-angiotensin system by combining\nlisinopril with an angiotensin receptor blocker or aliskiren is not\nrecommended.\n\nSECTION: dosage_and_administration\nFor hypertension in adults not on a diuretic, the recommended starting dose\nis 10 mg once daily, titrated according to blood pressure response, up to a\nusual maint",
+      "source_file": "Lisinopril.txt"
+    },
+    {
+      "chunk_id": "lisinopril-0007",
+      "product": "lisinopril",
+      "section": "general",
+      "text": "g once daily, titrated according to blood pressure response, up to a\nusual maintenance range as determined by the prescriber. This information is\nfor label-reference purposes only and is not a substitute for a clinician's\npersonalized dosing decision.",
+      "source_file": "Lisinopril.txt"
+    }
+  ],
+  "total_chunks": 8
+}
