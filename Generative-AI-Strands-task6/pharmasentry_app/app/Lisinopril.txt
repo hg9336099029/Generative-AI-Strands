@@ -1,0 +1,52 @@
+# SYNTHETIC DEMO CONTENT -- NOT the verbatim FDA label.
+# Written for PharmaSentry's capstone demo corpus. Before any real use,
+# replace with the actual current label text pulled live via
+# agent/tools/openfda_tool.py::openfda_label_search or the openFDA
+# drug/label bulk download, and re-run scripts/build_label_index.py.
+
+PRODUCT: Lisinopril (ACE inhibitor)
+
+SECTION: indications_and_usage
+Lisinopril is indicated for the treatment of hypertension, to lower blood
+pressure. It is also indicated for the treatment of heart failure, as an
+adjunct therapy, and for use in stable patients within 24 hours of acute
+myocardial infarction.
+
+SECTION: boxed_warning
+When pregnancy is detected, discontinue lisinopril as soon as possible.
+Drugs that act on the renin-angiotensin system can cause injury and death
+to the developing fetus.
+
+SECTION: warnings
+Angioedema of the face, extremities, lips, tongue, glottis, and/or larynx
+has been reported in patients treated with ACE inhibitors, including
+lisinopril, at any point during treatment. Lisinopril should be discontinued
+immediately and the patient monitored if angioedema occurs. Head and neck
+angioedema may cause airway obstruction.
+Excessive hypotension has been reported, particularly after the first dose,
+in volume- or salt-depleted patients.
+
+SECTION: contraindications
+Lisinopril is contraindicated in patients with a history of angioedema
+related to previous ACE inhibitor treatment, and in patients with hereditary
+or idiopathic angioedema. Do not co-administer with aliskiren in patients
+with diabetes.
+
+SECTION: adverse_reactions
+The most commonly reported adverse reactions in clinical trials were
+dizziness, headache, cough, and hypotension. Cough was more common than
+with comparator drugs and is a class effect of ACE inhibitors.
+
+SECTION: drug_interactions
+Concomitant use with potassium-sparing diuretics, potassium supplements, or
+salt substitutes containing potassium may lead to increases in serum
+potassium. Dual blockade of the renin-angiotensin system by combining
+lisinopril with an angiotensin receptor blocker or aliskiren is not
+recommended.
+
+SECTION: dosage_and_administration
+For hypertension in adults not on a diuretic, the recommended starting dose
+is 10 mg once daily, titrated according to blood pressure response, up to a
+usual maintenance range as determined by the prescriber. This information is
+for label-reference purposes only and is not a substitute for a clinician's
+personalized dosing decision.

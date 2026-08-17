@@ -1,0 +1,1 @@
+"""Pharmasentry application package."""
